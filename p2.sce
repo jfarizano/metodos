@@ -3,20 +3,24 @@ function r = raicesRobustas(pol)
     b = coeff(pol, 1);
     c = coeff(pol, 0);
 
-    disc = b**2 - 4 * a * c;
+    disc = b^2 - (4 * a * c);
 
     if (disc <= 0) || (a == 0) then
-        return %nan;
+        disp("No es posible")
+        r(1) = %nan
+        r(2) = %nan
+        return;
     end
 
     sqrt_disc = sqrt(disc);
 
+    // r(1) = x+, r(2) = x-
     if (b < 0) then
-        r(1) = (-b + sqrt_disc) / 2 * a;
-        r(2) = 2 * c / (-b + sqrt_disc);
+        r(1) = (-b + sqrt_disc) / (2 * a); // (7)
+        r(2) = (2 * c) / (-b + sqrt_disc); // (14)
     else
-        r(1) = 2 * c / (-b - sqrt_disc);
-        r(2) = (-b - sqrt_disc) / 2 * a;
+        r(1) = (2 * c) / (-b - sqrt_disc); // (15)
+        r(2) = (-b - sqrt_disc) / (2 * a); // (6)
     end
 endfunction
 
@@ -59,7 +63,7 @@ function v = deriv(f,n,vx,h)
 endfunction
 
 
-function [b, d] = calcularhorner(pol, x)
+function [b, d] = calcularHorner(pol, x)
     n = degree(pol);
     b = coeff(pol, n);
     d = b;
@@ -96,3 +100,34 @@ printf("Polinomio:\n");
 disp(pol);
 printf("Raíz positiva: \n");
 disp(r(1));
+printf("Raíz negativa: \n");
+disp(r(2));
+printf("Raices con roots:\n")
+disp(roots(pol));
+
+printf("\nOtro ejemplo: \n");
+pol = poly([2 6 3],"x","coeff");
+r = raicesRobustas(pol);
+printf("Polinomio:\n");
+disp(pol);
+printf("Raíz positiva: \n");
+disp(r(1));
+printf("Raíz negativa: \n");
+disp(r(2));
+printf("Raices con roots:\n")
+disp(roots(pol));
+
+// Ej 3
+printf("\n\n---------Ej 3---------\n");
+pol = poly([2 6 3 7 4],"x","coeff");
+printf("Polinomio de prueba:\n");
+disp(pol);
+x = 42;
+[b, d] = calcularHorner(pol, x);
+printf("Resultado de evaluar en x = %f,  p(x) = %f\n", x, b);
+printf("Derivada segun horner = %f\n", d);
+printf("Polinomio derivada de p:\n");
+pol = poly([6 6 21 16],"x","coeff");
+disp(pol);
+[b, d] = calcularHorner(pol, x);
+printf("Resultado de evaluar polinomio derivada = %f", b);
