@@ -131,3 +131,26 @@ pol = poly([6 6 21 16],"x","coeff");
 disp(pol);
 [b, d] = calcularHorner(pol, x);
 printf("Resultado de evaluar polinomio derivada = %f", b);
+
+// Ej 6
+printf("\n\n---------Ej 6---------\n");
+// Funcion que calcula e^x mediante un polinomio de taylor alrededor de 0
+function y = taylor_e_cero(x, n)
+    fact = 1;
+    xn = 1;
+    y = 1;
+    for i = 1:n
+        xn = xn * x;
+        fact = fact * i;
+        y = y + xn * (1/fact);
+    end
+endfunction
+
+printf("Valor real de e^(-2):\n");
+disp(%e^(-2));
+y = taylor_e_cero(-2, 10);
+printf("Calculando a partir de e^(-2):\n");
+disp(y);
+y = 1 / taylor_e_cero(2, 10);
+printf("Calculando a partir de 1/e^2:\n");
+disp(y);
