@@ -102,48 +102,6 @@ function y = taylor(f, a, n, h, x)
     end
 endfunction
 
-// Ej 1
-printf("\n\n---------Ej 1---------\n");
-pol = poly([-0.0001 10000.0 0.0001],"x","coeff");
-r = raicesRobustas(pol);
-printf("Polinomio:\n");
-disp(pol);
-printf("Raíz positiva: \n");
-disp(r(1));
-printf("Raíz negativa: \n");
-disp(r(2));
-printf("Raices con roots:\n")
-disp(roots(pol));
-
-printf("\nOtro ejemplo: \n");
-pol = poly([2 6 3],"x","coeff");
-r = raicesRobustas(pol);
-printf("Polinomio:\n");
-disp(pol);
-printf("Raíz positiva: \n");
-disp(r(1));
-printf("Raíz negativa: \n");
-disp(r(2));
-printf("Raices con roots:\n")
-disp(roots(pol));
-
-// Ej 3
-printf("\n\n---------Ej 3---------\n");
-pol = poly([2 6 3 7 4],"x","coeff");
-printf("Polinomio de prueba:\n");
-disp(pol);
-x = 42;
-[b, d] = calcularHorner(pol, x);
-printf("Resultado de evaluar en x = %f,  p(x) = %f\n", x, b);
-printf("Derivada segun horner = %f\n", d);
-printf("Polinomio derivada de p:\n");
-pol = poly([6 6 21 16],"x","coeff");
-disp(pol);
-[b, d] = calcularHorner(pol, x);
-printf("Resultado de evaluar polinomio derivada = %f", b);
-
-// Ej 6
-printf("\n\n---------Ej 6---------\n");
 // Funcion que calcula e^x mediante un polinomio de taylor alrededor de 0
 function y = taylor_e_cero(x, n)
     fact = 1;
@@ -155,12 +113,3 @@ function y = taylor_e_cero(x, n)
         y = y + xn * (1/fact);
     end
 endfunction
-
-printf("Valor real de e^(-2):\n");
-disp(%e^(-2));
-y = taylor_e_cero(-2, 10);
-printf("Calculando a partir de e^(-2):\n");
-disp(y);
-y = 1 / taylor_e_cero(2, 10);
-printf("Calculando a partir de 1/e^2:\n");
-disp(y);
