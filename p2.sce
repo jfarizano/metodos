@@ -164,3 +164,65 @@ disp(y);
 y = 1 / taylor_e_cero(2, 10);
 printf("Calculando a partir de 1/e^2:\n");
 disp(y);
+
+
+// Salida completa del programa
+/*
+---------Ej 1---------
+Polinomio:
+
+                          2
+  -0.0001 +10000x +0.0001x 
+Raíz positiva: 
+
+   0.00000001
+Raíz negativa: 
+
+  -100000000.
+Raices con roots:
+
+  -100000000.
+   0.00000001
+
+Otro ejemplo: 
+Polinomio:
+
+            2
+   2 +6x +3x 
+Raíz positiva: 
+
+  -0.4226497308104
+Raíz negativa: 
+
+  -1.5773502691896
+Raices con roots:
+
+  -1.5773502691896  
+  -0.4226497308104  
+
+
+---------Ej 3---------
+Polinomio de prueba:
+
+            2    3    4
+   2 +6x +3x  +7x  +4x 
+Resultado de evaluar en x = 42.000000,  p(x) = 12970946.000000
+Derivada segun horner = 1222710.000000
+Polinomio derivada de p:
+
+             2     3
+   6 +6x +21x  +16x 
+Resultado de evaluar polinomio derivada = 1222710.000000
+
+---------Ej 6---------
+Valor real de e^(-2):
+
+   0.1353352832366
+Calculando a partir de e^(-2):
+
+   0.1353791887125
+Calculando a partir de 1/e^2:
+
+   0.1353364076419
+
+*/

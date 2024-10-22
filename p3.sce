@@ -260,3 +260,64 @@ printf("Con el método de newton, con x0 = %f obtenido del cálculo anterior\n",
 // Busco g(x) tal que g(x) = 0, entonces g(x) = f(x) - x
 [y, i] = newton(f + " - x", y, 10^(-6), 10000, 10^(-6))
 printf("f(x) = %s\n y = %f, i = %d\n", f, y, i)
+
+// Salida completa del programa
+/*
+---------Ej 2---------
+Resultados f1(x) = cos(x) * cosh(x) + 1
+Bisección raiz 1.875104 en 21 iteraciones
+Secante raiz 1.875104 en 9 iteraciones
+Regula falsi raiz 1.875104 en 22 iteraciones
+
+Resultados f2(x) = cos(x) * cosh(x) + 1
+Bisección raiz 1.404415 en 18 iteraciones
+Secante raiz 1.404415 en 7 iteraciones
+Regula falsi raiz 1.404415 en 13 iteraciones
+
+Resultados f3(x) = cos(x) * cosh(x) + 1
+Bisección raiz 1.429611 en 18 iteraciones
+Secante raiz 1.429612 en 13 iteraciones
+Regula falsi raiz 1.429616 en 34 iteraciones
+
+Resultados f4(x) = cos(x) * cosh(x) + 1
+Bisección raiz 1.000002 en 18 iteraciones
+Secante raiz 1.000000 en 7 iteraciones
+Regula falsi raiz 0.999999 en 7 iteraciones
+
+Resultados f5(x) = cos(x) * cosh(x) + 1
+Bisección raiz 1.933754 en 18 iteraciones
+Secante raiz 1.933754 en 8 iteraciones
+Regula falsi raiz 1.933753 en 14 iteraciones
+
+
+
+---------Ej 5---------
+g(x) = x + (1 / 5)*(x^2 - 5), y = -2.236068, i = 14
+
+---------Ej 6---------
+g1(x) = %e^x / 3, y = 0.619062, i = 28
+g2(x) = (%e^x - x) / 2, y = 0.619062, i = 17
+g3(x) = log(3 * x), y = 1.512133, i = 32
+g4(x) = %e^x - 2 * x, y = 0.619061, i = 8
+
+
+---------Ej 7---------
+
+ Se alcanzó el máximo de iteraciones
+y = [-0.293163 1.172660], i = 5
+
+---------Ej 8---------
+x = [1.200000 2.500000], y = [1.336355 1.754235], i = 5
+x = [-2.000000 2.500000], y = [-0.901266 -2.086588], i = 9
+x = [-1.200000 -2.500000], y = [-0.901266 -2.086588], i = 5
+x = [2.000000 -2.500000], y = [-3.001625 0.148108], i = 19
+
+
+---------Ej 10---------
+Punto fijo empezando desde x0 = 28
+f(x) = 9.8 * 25 / (2 * %pi) * tanh(8 * %pi / x)
+ y = 27.955296, i = 2
+Con el método de newton, con x0 = 27.955296 obtenido del cálculo anterior
+f(x) = 9.8 * 25 / (2 * %pi) * tanh(8 * %pi / x)
+ y = 27.928560, i = 3
+*/
