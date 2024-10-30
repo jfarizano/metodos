@@ -85,6 +85,7 @@ tic()
 [x1, iters] = gaussSeidel(A, b, x0, 10^(-6), %inf)
 t = toc()
 printf("Tolerancia de 10^(-6): %f segundos y %d iteraciones\n", t, iters)
+tic()
 [x1, iters] = gaussSeidel(A, b, x0, 10^(-11), %inf)
 t = toc()
 printf("Tolerancia de 10^(-11): %f segundos y %d iteraciones\n", t, iters)
@@ -141,7 +142,6 @@ printf("Con método de SOR y omega óptimo = %f\n", w)
 printf("x = \n")
 disp(x1)
 printf("En %d iteraciones\n", iters)
-
 
 // Salida completa del programa
 /*
@@ -231,17 +231,17 @@ En 38 iteraciones
 
 ---------Ej 4---------
 N = 100
-Tiempo con eliminación de Gauss con pivoteo = 0.041920 segundos
+Tiempo con eliminación de Gauss con pivoteo = 0.044316 segundos
 Método de Gauss-Seidel:
-Tolerancia de 10^(-6): 0.213754 segundos y 18 iteraciones
-Tolerancia de 10^(-11): 0.688948 segundos y 40 iteraciones
+Tolerancia de 10^(-6): 0.011058 segundos y 18 iteraciones
+Tolerancia de 10^(-11): 0.022564 segundos y 40 iteraciones
 
 
 N = 500
-Tiempo con eliminación de Gauss con pivoteo = 2.001813 segundos
+Tiempo con eliminación de Gauss con pivoteo = 1.936798 segundos
 Método de Gauss-Seidel:
-Tolerancia de 10^(-6): 5.433726 segundos y 18 iteraciones
-Tolerancia de 10^(-11): 17.586950 segundos y 40 iteraciones
+Tolerancia de 10^(-6): 0.096383 segundos y 18 iteraciones
+Tolerancia de 10^(-11): 0.307122 segundos y 40 iteraciones
 
 
 
