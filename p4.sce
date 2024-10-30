@@ -318,8 +318,6 @@ b = [2 10 44 190]'
 printf("A = \n")
 disp(A)
 [L, U] = doolittleLU(A)
-printf("P = \n")
-disp(P)
 printf("L = \n")
 disp(L)
 printf("U = \n")

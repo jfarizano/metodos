@@ -36,7 +36,7 @@ function x = triangularInferior(A,b)
     a = [A b]; // Matriz aumentada
     n = nA;
 
-    // Sustitución regresiva
+    // Sustitución progresiva
     x(1) = a(1,n+1)/a(1,1);
     for i = 2:n
         sumk = a(i, 1:i-1)*x(1:i-1)
