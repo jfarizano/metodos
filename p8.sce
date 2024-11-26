@@ -167,6 +167,37 @@ I_simp = simpsonCompuesto(f, a, b, n)
 disp(I_simp)
 printf("\n")
 
+// Ejercicio 5
+printf("\n\n---------Ej 5---------\n");
+f = "sin(x + y)"
+a = 0
+b = 2
+c = "0"
+d = "1"
+printf("f(x, y) = %s\n", f)
+printf("a = %f , b = %f\n", a, b)
+printf("c(x) = %s\n", c)
+printf("d(x) = %s\n", d)
+printf("Trapecio compuesto bidimensional 2 intervalos sobre cada eje:")
+I = trapecioCompuestoBidim(f, a, b, c, d, 2, 2)
+disp(I)
+
+// Ejercicio 6
+printf("\n\n---------Ej 6---------\n");
+f = "1"
+a = 0; b = 2;
+c = "-sqrt(2*x-x^2)"
+d = "sqrt(2*x-x^2)"
+printf("f(x, y) = %s\n", f)
+printf("a = %f , b = %f\n", a, b)
+printf("c(x) = %s\n", c)
+printf("d(x) = %s\n", d)
+printf("Trapecio compuesto bidimensional 1000 intervalos sobre cada eje:")
+I = trapecioCompuestoBidim(f, a, b, c, d, 1000, 1000)
+disp(I)
+printf("Simpson compuesto bidimensional 1000 intervalos sobre cada eje:")
+I = simpsonCompuestoBidim(f, a, b, c, d, 1000, 1000)
+disp(I)
 
 // Salida completa del programa
 /*
@@ -258,4 +289,25 @@ Método del trapecio:
    0.9178617
 Método de Simpson:
    0.9163064
+
+
+
+---------Ej 5---------
+f(x, y) = sin(x + y)
+a = 0.000000 , b = 2.000000
+c(x) = 0
+d(x) = 1
+Trapecio compuesto bidimensional 2 intervalos sobre cada eje:
+   1.4424001
+
+
+---------Ej 6---------
+f(x, y) = 1
+a = 0.000000 , b = 2.000000
+c(x) = -sqrt(2*x-x^2)
+d(x) = sqrt(2*x-x^2)
+Trapecio compuesto bidimensional 1000 intervalos sobre cada eje:
+   3.1414875
+Simpson compuesto bidimensional 1000 intervalos sobre cada eje:
+   3.1415516
 */
