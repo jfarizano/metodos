@@ -23,17 +23,17 @@ endfunction
 
 // Interpolación Lagrange
 function y = Lk(x,k)
-    [Xn,Xm] = size(x)
-    r = [x(1:k-1) x(k+1:Xm)]
+    n = length(x)
+    r = [x(1:k-1) x(k+1:n)]
     p = poly(r,"x","roots")
     pk = horner(p,x(k))
     y = p / pk
 endfunction
 
 function z = interpolLagrange(x,y)
-    [Xn,Xm] = size(x)
+    n = length(x)
     pol = 0
-    for k = 1:Xm
+    for k = 1:n
         pol = pol + (Lk(x,k)*y(k))
     end
     z = pol
@@ -63,6 +63,7 @@ function w = rootsCheby(n)
     for i=0:(n-1) do
         w(i+1)=cos((2*i+1)*%pi/(2*n))
     end
+    w = w'
 endfunction
 
 // Raíces del polinomio de Chebyshev
@@ -71,6 +72,7 @@ function w = rootsCheby_ab(n,a,b)
         w(i+1)=cos((2*i+1)*%pi/(2*n))
     end
     w = ((b+a) + w*(b-a))/2
+    w = w'
 endfunction
 
 // Polinomio de Chebyshev

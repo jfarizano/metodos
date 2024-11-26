@@ -127,8 +127,6 @@ plot2d(xx', yy, 1:size(n, 2)+1, leg=leyen)
 printf("\n\n---------Ej 10---------\n");
 clf()
 x = rootsCheby(4)
-// Preguntar por qué está dando una constante con Lagrange
-p = interpolLagrange(x, exp(x))
 p = interpolNewton(x, exp(x))
 printf("Polinomio = \n")
 disp(p)
