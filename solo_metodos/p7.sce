@@ -51,8 +51,8 @@ function A = matrizMinCuadPol(x,grado)
     // p = grado+1
     m = length(x)
     A = ones(m,1)
-    for j=2:(grado+1)
-        A = [A,(x').^(j-1)]
+    for j=1:grado
+        A = [A,(x').^j]
     end
 endfunction
 
