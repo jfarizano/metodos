@@ -46,6 +46,19 @@ function [p,err] = minCuadPol(A,b)
     err = norm(A*a-(b'))
 endfunction
 
+function [p,err] = minCuadPolInv(A,b)
+    a = inv(A'* A) * A' * b'
+    p = poly(a,"x","coeff")
+    err = norm(A*a-(b'))
+endfunction
+
+function [p,err] = minCuadPolQR(A,b)
+    [Q, R] = qr(A, ["e"])
+    a = inv(R) * Q' * b'
+    p = poly(a,"x","coeff")
+    err = norm(A*a-(b'))
+endfunction
+
 // Matriz del método de mínimo cuadrados polinomial
 function A = matrizMinCuadPol(x,grado)
     // p = grado+1
@@ -88,4 +101,20 @@ function w = polCheby(x,n)
     else
         w = 2*x.*polCheby(x,n-1)-polCheby(x,n-2)
     end
+endfunction
+
+// Funcion utilizada para acotar más rápidamente el error de una interpolación
+// tener en cuenta que estoy multiplicando por el máximo teórico de la derivada
+// calculado en papel, pero sirve para graficar el polinomio y ver el máximo
+// para encontrar la cota
+function p = polErrorInterpol(x, max_deriv)
+    n = size(x, 2)
+
+    x_pol = poly(0, "x")
+    p = 1
+
+    for i=1:n
+        p = p * (x_pol - x(i))
+    end
+    p = p * (max_deriv / factorial(n))
 endfunction

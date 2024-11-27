@@ -361,10 +361,6 @@ endfunction
 
 function [Q, R] = QR(A)
     [nA, mA] = size(A)
-    if nA<>mA then
-        error('qr - La matriz A debe ser cuadrada');
-        abort;
-    end;
 
     v(1) = norm(A(:,1))
     Q(:,1) = A(:, 1)/v(1)
