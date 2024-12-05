@@ -117,6 +117,8 @@ function [x1, i] = puntoFijo(fun, x0, tol, iter)
     end
 endfunction
 
+// fun es una función de Scilab que recibe un vector x, accede a los x(i)
+// y devuelve un vector "y" con la solución
 function [x1, i] = newtonMultivariable(fun, x0, tol, iter)
     i = 0;
     delta = %inf;
