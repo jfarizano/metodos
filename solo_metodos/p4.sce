@@ -403,3 +403,34 @@ function [L,U] = crout(A)
         end
     end
 endfunction
+
+function X = triangularSuperiorAmpliada(A,B)
+   [nA, mA] = size(A);
+   [nB, mB] = size(B);
+
+   // Matriz aumentada
+   A_aum = [A,B];
+
+   // Sustitución regresiva
+   X(nA,1:mB) = A_aum(nA,(nA+1):(nA+mB))./A_aum(nA,nA)
+
+   for i = (nA-1):-1:1 do
+      X(i,1:mB) = (A_aum(i,(mA+1):(mA+mB)) - A_aum(i,(i+1):mA)*X((i+1):mA,1:mB))./A_aum(i,i)
+   end
+endfunction
+
+function X = triangularInferiorAmpliada(A,B)
+   [nA, mA] = size(A);
+   [nB, mB] = size(B);
+
+   // Matriz aumentada
+   A_aum = [A,B];
+
+   // Sustitución progresiva
+   X(1,1:mB) = A_aum(1,(nA+1):(nA+mB))./A_aum(1,1)
+
+   for i = 2:nA do
+      X(i,1:mB) = (A_aum(i,(mA+1):(mA+mB)) - A_aum(i,1:(i-1))*X(1:(i-1),1:mB))./A_aum(i,i)
+   end
+endfunction
+

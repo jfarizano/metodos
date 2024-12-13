@@ -68,3 +68,52 @@ function [x1, contador] = SOR(A, b, x0, w, tol, iter)
         contador = contador + 1
     end
 endfunction
+
+// Funciones para obtener el radio espectral de las matrices de los métodos
+// de Jacobi, Gauss-Seidel y SOR para verificar su convergencia
+function r = r_Jacobi(A)
+   D_inv = diag(diag(1 ./ A))
+
+   T = eye(A) - (D_inv)
+   r = max(abs(spec(T)))
+endfunction
+
+function r = r_GaussSeidel(A)
+   n = size(A, 1)
+   D = diag(diag(A))
+   L = A - D
+
+   for i=1:n
+       for j=1:n
+           if i > j
+               L(i, j) = 0
+           end
+       end
+   end
+
+   N = L + D
+   T = eye(A) - inv(N)*A
+   r = max(abs(spec(T)))
+endfunction
+
+// El radio depende del omega utilizado
+function r = r_SOR(A, w)
+   n = size(A, 1)
+   D = diag(diag(A))
+   L = A - D
+   U = A - D
+
+   for i=1:n
+       for j=1:n
+           if i > j
+               L(i, j) = 0
+           end
+           if i < j
+               U(i, j) = 0
+           end
+       end
+   end
+
+   Tw = inv((D + w*L)) * (((1-w) * D) - (w*U))
+   r = max(abs(spec(Tw)))
+endfunction
